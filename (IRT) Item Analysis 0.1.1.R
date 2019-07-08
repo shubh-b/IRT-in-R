@@ -54,7 +54,7 @@ plot1 <- ggplot(data = data.frame(x, y), aes(x = x, y = y)) +
   expand_limits(y = c(0.0, 1.0)) + xlab('Ability') + ylab('Probability')
 
 plot2 <- ggplot(data = data.frame(x, y), aes(x = x, y = y)) +
-  geom_line(color = 'red', data = data.frame(x, y2*(1 - y2)), aes(x = x, y = y2*(1 - y2))) + theme_bw() +
+  geom_line(color = 'red', data = data.frame(x, (params[1]^2)*y2*(1 - y2)), aes(x = x, y = (params[1]^2)*y2*(1 - y2))) + theme_bw() +
   expand_limits(y = c(0.0, 1.0)) + xlab('Scaled Score') + ylab('Information')
 
 grid.arrange(plot1, plot2, ncol=2)
